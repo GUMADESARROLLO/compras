@@ -1,12 +1,12 @@
 <nav class="navbar navbar-standard navbar-expand-lg fixed-top navbar-dark btn-bg-umk" data-navbar-darken-on-scroll="data-navbar-darken-on-scroll">
-        <div class="container"><a class="navbar-brand" href="{{ route('Home') }}"><span class="text-white dark__text-white">GPLANILLA</span></a>
+        <div class="container"><a class="navbar-brand" href="{{ route('Requests') }}"><span class="text-white dark__text-white">COMPRAS</span></a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStandard" aria-controls="navbarStandard" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse scrollbar" id="navbarStandard">
             <ul class="navbar-nav" data-top-nav-dropdowns="data-top-nav-dropdowns">
               
               @if(Auth::User()->role_id == 1)
-              <li class="nav-item dropdown"><a class="nav-link" href="{{ route('Home') }}">Dashboard</a>
+              <!-- <li class="nav-item dropdown"><a class="nav-link" href="{{ route('Home') }}">Dashboard</a> -->
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="documentations">Empleados</a>
@@ -26,7 +26,7 @@
                   </div>
                 </div>
               </li>       
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="documentations">Nóminas</a>
                 <div class="dropdown-menu dropdown-menu-card border-0 mt-0" aria-labelledby="documentations">
                   <div class="bg-white dark__bg-1000 rounded-3 py-2">
@@ -35,7 +35,7 @@
                   </div>
                 </div>
               </li>       
-              <li class="nav-item dropdown"><a class="nav-link" href="{{ route('Catalogos') }}">Catalogos</a>
+              <li class="nav-item dropdown"><a class="nav-link" href="{{ route('Catalogos') }}">Catalogos</a> -->
               @else
               <li class="nav-item dropdown"><a class="nav-link" href="{{ route('Requests') }}">Solicitudes</a>
               @endif

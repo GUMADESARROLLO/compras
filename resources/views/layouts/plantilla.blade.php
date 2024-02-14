@@ -11,7 +11,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>PLANILLA | GRUPO GUMA </title>
+    <title>COMPRAS | GRUPO GUMA </title>
     <link rel="shortcut icon" href="{{ url('images/ic-guma.png') }}" />
 
 
