@@ -1,0 +1,184 @@
+Table tbl_company {
+  id_compy int (10) [pk, increment]
+  company_name varchar(25)
+  active int (5) 
+}
+
+Table tbl_department {
+  id_department int (10) [pk, increment]
+  department_name varchar(25)
+  company_id int (10) [ref: > tbl_company.id_compy]
+  active int (5) 
+}
+
+Table tbl_position {
+  id_position int (10) [pk, increment]
+  position_name varchar(25)
+  department_id int (10) [ref: > tbl_department.id_department]
+  active int (5) 
+}
+
+Table tbl_payrolls{
+  id_payrolls int (10) [pk, increment]
+  payroll_type_id int (10) [ref: > tbl_payroll_type.id_payroll_type]
+  company_id int (10) [ref: > tbl_company.id_compy]
+  payroll_status_id int(10) [ref: > tbl_payroll_status.id_payroll_status]
+  payroll_name varchar(25)
+  start_date date
+  end_date date
+  inss_patronal decimal(10.4)
+  Inatec decimal(10,4)
+  observation varchar(500)
+  user_id int (10)
+  created_at datetime
+  updated_at datetime 
+}
+
+Table tbl_Ingresos_Egresos {
+  id_Ingresos_Egresos int [pk, increment]
+  payrolls_id int(25) [ref: > tbl_payrolls.id_payrolls]
+  cantHorasExt int(10)
+  montoHorasExt decimal(10,4)
+  ingGravable decimal(10,4)
+  ingNoGravable decimal(10,4)
+  cantHorasDeducir int(10)
+  montoHorasDeducir decimal(10,4)
+  deduccionesVarias decimal(10,4)
+  inss decimal(10,4)
+  ir decimal(10,4)
+  totalDeducciones decimal(10,4)
+  cantVacDesc int(10)
+  montoVacDesc decimal(10,4)
+  diasSubMaternidad int(10)
+  montoSubMaternidad decimal(10,4)
+  diasSubsidio int(10)
+  diasLaborados int(10)
+  reposoLaboral int(10)
+  salarioOrdinario decimal(10,4)
+}
+
+Table tbl_payroll_status{
+  id_payroll_status int (10) [pk, increment]
+  payroll_status_name varchar(25)     
+  status_color varchar(25)
+  status_icon varchar(25)
+  created_at datetime
+  updated_at datetime
+}
+
+Table tbl_employe_payroll{
+  employee_id int (10) [ref: > tbl_employee.id_employee] 
+  payrolls_id int(25) [ref: > tbl_payrolls.id_payrolls] 
+}
+
+
+Table tbl_payroll_type{
+  id_payroll_type int (10) [pk, increment]
+  payroll_type_name varchar(25)
+  user_id int (10)
+  created_at datetime
+  updated_at datetime
+  active int (5)
+}
+Table tbl_payroll_inss_patronal{
+  id_inss_patronal int (10) [pk, increment]
+  inss_patronal_value decimal(10,4)
+  user_id int (10)
+   active int (5)
+  created_at datetime
+  updated_at datetime
+}
+Table tbl_payroll_inatec{
+  id_inatec int (10) [pk, increment]
+  inatec_value decimal(10,4)
+  user_id int (10)
+   active int (5)
+  created_at datetime
+  updated_at datetime
+}
+Table tbl_employee {
+  id_employee int (10) [pk, increment]
+  position_id int (10) [ref: > tbl_position.id_position] 
+  contract_type_id int (10) [ref: > tbl_contract_type.id_contract_type]
+  first_name varchar(25)
+  last_name varchar(25)
+  phone_number varchar(25)
+  cedula_number varchar(25)
+  inss_number varchar(25)
+  email varchar(25)
+  address varchar(255) 
+  vacation_balance decimal (10,4)  
+  date_in date
+  date_out date
+  gender int(10)  
+  nationality varchar(25)  
+  shirt_size varchar(10)  
+  pants_size varchar(10)
+  path_image varchar(150)
+  active int (5)  
+}
+Table tbl_contract_type {
+  id_contract_type int (10) [pk, increment]
+  contract_type_name varchar(25)
+  active int (5)
+}
+
+Table tbl_vacation_history {
+  id_vacation_history int (10) [pk, increment]
+  employee_id int (10) [ref: > tbl_employee.id_employee]
+  typeName varchar(25)
+  description varchar(25) 
+  dayRecord decimal (10,2)
+  created_at datetime
+}
+
+Table tbl_vacation_request {
+  id_vacation_request int (10) [pk, increment]
+  employee_id int (10) [ref: > tbl_employee.id_employee]
+  request_type_id int (10) [ref: > tbl_request_type.id_request_type]
+  start_date date
+  end_date date
+  return_date date
+  requested_days decimal (10,2)
+  approval_date date
+  request_status_id int (10)  [ref: > tbl_request_status.id_request_status, default: 1]
+  observation varchar(500)
+  active int (5) 
+}
+
+Table tbl_request_status {
+  id_request_status int (10) [pk, increment]
+  status_name varchar(25)  
+  status_color varchar(25)
+  status_icon varchar(25)
+  active int (5) 
+
+}
+
+Table tbl_request_type {
+  id_request_type int (10) [pk, increment]
+  type_name varchar(25)
+  active int (5) 
+
+}
+
+Table users {
+  id int [pk, increment]
+  username varchar
+  password varchar
+  nombre varchar
+  role_id int [ref: > rol.id_role]
+  active int (5) 
+}
+Table tbl_employee_assigned {
+  id_employee_assigned int(10)  [pk, increment]
+  users_id int (10) [ref: > users.id]
+  employee_id int (10) 
+
+}
+
+Table rol {
+  id_role int [pk, increment]
+  role_name varchar
+  active int (5) 
+}
