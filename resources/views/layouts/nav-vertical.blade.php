@@ -34,8 +34,9 @@
                 
                   </div>
                 </div>
-              </li>       
-              <li class="nav-item dropdown"><a class="nav-link" href="{{ route('Catalogos') }}">Catalogos</a> -->
+              </li>  -->
+                    
+              <li class="nav-item dropdown"><a class="nav-link" href="{{ route('Catalogos') }}">Catalogos</a>
               @else
               <li class="nav-item dropdown"><a class="nav-link" href="{{ route('Requests') }}">Solicitudes</a>
               @endif

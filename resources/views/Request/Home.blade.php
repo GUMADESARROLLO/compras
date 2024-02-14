@@ -40,10 +40,27 @@
                     <div class="tab-pane active" role="tabpanel"  id="id_tab_requests">
 
                       <div id="table" data-list='{"valueNames":["path"],"page":5,"pagination":true,"fallback":"pages-table-fallback"}'>
+                        
+                    
                         <div class="row flex-between-center">
                           <div class="col-auto col-sm-12 col-lg-12 mb-3">
                             <div class="input-group">
                               <input class="form-control form-control-sm shadow-none search" type="search" placeholder="Buscar..." aria-label="search" />
+                              
+                              <div class="input-group-text bg-transparent"><span class="fa fa-search fs--1 text-600"></span></div>
+                              
+
+                              <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+                              <input class="form-control datetimepicker " id="date_ini" type="text" 
+                              required="required" name="startDate" 
+                              placeholder="yyyy/mm/dd" 
+                              data-options='{"static":"true","enableTime":"false","dateFormat":"Y-m-d"}' />
+
+                              <span class="input-group-text "><span class="far fa-calendar-alt"></span></span>
+                              <input class="form-control datetimepicker" id="date_ini" type="text" 
+                              required="required" name="startDate" 
+                              placeholder="yyyy/mm/dd" 
+                              data-options='{"static":"true","enableTime":"false","dateFormat":"Y-m-d"}' />
                               <div class="input-group-text bg-transparent"><span class="fa fa-search fs--1 text-600"></span></div>
                               <div class="input-group-text bg-transparent" id="btn_open_modal_request"><span class="fa fa-plus fs--1 text-600" ></span></div>
                             </div>
